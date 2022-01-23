@@ -28,6 +28,7 @@ function Products() {
   const [prevProducts, setPrevProducts] = useState(undefined);
   const [prevLength, setPrevLength] = useState(null);
   const [isNotMobile] = useMediaQuery("(min-width:760px)");
+  const [isMobile] = useMediaQuery("(max-width:600px)");
   const [toggleButton, setToggleButton] = useState(false);
   // const [toggleLikeButton, setToggleLikeButton] = useState(false);
 
@@ -62,6 +63,7 @@ function Products() {
    */
   const handleSoldItems = () => {
     if (toggleButton === false) {
+      console.log("hit if statemnet");
       setPrevLength(numberOfProducts);
       setPrevProducts(products);
       setProducts(unsoldProducts);
@@ -77,7 +79,10 @@ function Products() {
   return (
     <Box>
       {loading && (
-        <Heading color="gray" fontSize={isNotMobile ? "5xl" : "md"}>
+        <Heading
+          color="gray"
+          fontSize={isMobile ? "sm" : isNotMobile ? "5xl" : "md"}
+        >
           {" "}
           Retrieving products...
         </Heading>
@@ -91,9 +96,16 @@ function Products() {
           size="xl"
         />
       )}
-      <Flex justify="space-between" mb={5}>
+      <Flex
+        justify="space-between"
+        mb={isMobile ? 0 : 5}
+        gap={isMobile ? 0 : 10}
+      >
         {!loading && (
-          <Heading color="gray" fontSize={isNotMobile ? "4xl" : "2xl"}>
+          <Heading
+            color="gray"
+            fontSize={isMobile ? "xl" : isNotMobile ? "4xl" : "2xl"}
+          >
             {" "}
             {numberOfProducts} Results
           </Heading>

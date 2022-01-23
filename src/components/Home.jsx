@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/layout";
+import { useMediaQuery } from "@chakra-ui/media-query";
 import React from "react";
 import Navigation from "./Navigation";
 import Products from "./Products";
@@ -10,6 +11,7 @@ import Products from "./Products";
  * @author [Abdirahman Jama]
  */
 function Home() {
+  const [isMobile] = useMediaQuery("(max-width:600px)");
   const products = ["Rustic Metal Towels", "Test"];
 
   return (
@@ -19,12 +21,16 @@ function Home() {
           borderWidth="0"
           justify="flex-end"
           backgroundColor="white"
-          paddingRight="200"
-          paddingLeft="200"
+          paddingRight={isMobile ? "0" : "200"}
+          paddingLeft={isMobile ? "0" : "200"}
         >
           <Navigation likes="4" likedProducts={products} />
         </Flex>
-        <Box className="App" paddingRight="200" paddingLeft="200">
+        <Box
+          className="App"
+          paddingLeft={isMobile ? "0" : "200"}
+          paddingRight={isMobile ? "0" : "200"}
+        >
           <Box backgroundColor="gray.100" paddingTop="50">
             <Products />
           </Box>{" "}

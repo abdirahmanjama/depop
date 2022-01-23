@@ -3,6 +3,15 @@ import React, { useState } from "react";
 import { Image, IconButton, LinkBox } from "@chakra-ui/react";
 import { MdThumbUpOffAlt } from "react-icons/md";
 import fallback from "./fallback.png";
+import PropTypes from "prop-types";
+
+/**
+ * Product component - this is a "dumb" component which is used to define the structure for our
+ *                     reusable product cards.
+ *
+ * @version 0.0.1
+ * @author [Abdirahman Jama]
+ */
 
 function Product({ brand, size, price, img, sold }) {
   const [toggleLikeButton, setToggleLikeButton] = useState(false);
@@ -11,6 +20,16 @@ function Product({ brand, size, price, img, sold }) {
     setToggleLikeButton(!toggleLikeButton);
   };
 
+  /**
+   * Function to centralise size data returned from back-end API.
+   *
+   * @param {string} size
+   * @description - The backend api returns mixed values for size data of each product. It returns letters e.g. S, M, L (Small, Medium, Large).
+   *                It also returns numbers with strings e.g. size 32, size 28 etc. I have made these sizes common by adding the term Size before the value if it does not already exist.
+   *                And I've capitalised the first letter - just to improve the overall look and feel of the UI.
+   * items.)
+   * @return {string} altered size string
+   */
   const homogeniseSizeValue = (size) => {
     if (size.toLowerCase().startsWith("size")) {
       return size.charAt(0).toUpperCase() + size.slice(1);
@@ -90,5 +109,13 @@ function Product({ brand, size, price, img, sold }) {
     </LinkBox>
   );
 }
+
+Product.propTypes = {
+  brand: PropTypes.string,
+  size: PropTypes.string,
+  sold: PropTypes.boolean,
+  img: PropTypes.string,
+  price: PropTypes.string,
+};
 
 export default Product;

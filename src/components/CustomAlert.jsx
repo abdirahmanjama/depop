@@ -1,7 +1,13 @@
-import React from 'react';
-import { Alert, AlertIcon, AlertTitle } from '@chakra-ui/alert';
-import { CloseButton } from '@chakra-ui/close-button';
+import React from "react";
+import { Alert, AlertIcon, AlertTitle } from "@chakra-ui/alert";
+import { CloseButton } from "@chakra-ui/close-button";
 
+/**
+ * Custom Alert component created for displaying error info to users.
+ *
+ * @version 0.0.1
+ * @author [Abdirahman Jama]
+ */
 function CustomAlert() {
   return (
     <Alert status="error">

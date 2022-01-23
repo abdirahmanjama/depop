@@ -3,6 +3,7 @@ import { Flex } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import React from "react";
 import { MdThumbUpOffAlt } from "react-icons/md";
+import PropTypes from "prop-types";
 
 function Navigation({ likes, likedProducts }) {
   const handleClick = () => {
@@ -28,5 +29,10 @@ function Navigation({ likes, likedProducts }) {
     </Flex>
   );
 }
+
+Navigation.propTypes = {
+  likes: PropTypes.string,
+  likedProducts: PropTypes.array,
+};
 
 export default Navigation;

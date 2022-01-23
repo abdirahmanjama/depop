@@ -54,9 +54,9 @@ I decided to use a component libary as it offers a single source of truth with r
 
 Also, duplicating this css leads to risk of human error e.g. styling things differently hence leading to an inconsistent product. Using a component library means that there wouldn't be any risk with regards to variation between pages. Hence, using a component library gives us consistency - hence fostering a product with a greater user experience.
 
-I could've also used other component libraries like Tailwind CSS (which is great), Material UI and even potentially the Depop Design System (but i didn't have access to this unfortunately).
-
 I chose Chakra in particular because it creates accessibile components out of the box. This ensures that our pages follow the WCAG guidelines of POUR - percievability, operabilitity, understandable, and robustness.
+
+I could've also used other component libraries like Tailwind CSS (which is great), Material UI and even potentially the Depop Design System (but i didn't have access to this unfortunately).
 
 # <b> Challenges </b>
 
@@ -84,10 +84,20 @@ Added a loading state to our products page. I set this to true before the API ca
 One of the tasks required me to add a dropdown list showing the liked product. With respect of time, i couldn't get this done. However, from a system design point of view, I would've stored liked images on server side rather than on the client. I could've used hooks (useState)
 to store it, or i could've used redux. However, i think for performance and scalabilitty purposes its better to store this on client. Also, if you have multiple users, they need to be able to see what other people liked etc.
 
+In hindsight, I probably would've used some sort of state management tool from the get-go e.g. Redux or Zustand, putting data in a global state would've made this task a lot easier to handle. However, the downside with state management tools is that, as the application scales, our global data store can get very messy.
+
 <b> 4th Challenge - Not being able to communicate with the team </b>
 
 I generally like talking to colleagues about tickets during backlog refinements or sprint planning so we can all agree on requirements between ourselves and with product owners (if they're present). This allows us to come to a consensus and hence ensures that I'm developing features that'll benefit our users.
 
+Developing solutions is all about putting the customer first and working our way backwards, ensuring we capture all their requirements and build features that help simplify their workflow when using our products.
+
 # <b> Conclusion </b>
 
-I really enjoyed this task - it was a good challenge. Really allowed me to push myself and arrive at a solution that somewhat looks like the provided designs :)
+I really enjoyed this task - it was a good challenge. Really allowed me to push myself and arrive at a solution that somewhat looks like the provided designs.
+
+I carried out unit tests for all of the components I created. I also tested the API to see if it returns the data we expect it to.
+
+Additionally, I was used es-lint within the application to force coding standards within the project. This ensured that the code is of a certain standard.
+
+With regards to further scanning, if this were to get productionised, I'm assuming our dev environment CI/CD pipelines would have scanning tools such as Trivy to scan the image of the UI (assuming we deploy on AWS EKS). We could potentially also ESLint further in pipelines to revalidate code, and we'd also run all our tests again. The code would then, i hope, work its way through the different development environments e.g. test, staging and then finally production.

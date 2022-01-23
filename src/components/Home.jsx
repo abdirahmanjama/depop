@@ -3,6 +3,12 @@ import React from "react";
 import Navigation from "./Navigation";
 import Products from "./Products";
 
+/**
+ * Home component which groups together all the different components.
+ *
+ * @version 0.0.1
+ * @author [Abdirahman Jama]
+ */
 function Home() {
   const products = ["Rustic Metal Towels", "Test"];
 

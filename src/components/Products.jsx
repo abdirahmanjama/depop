@@ -30,7 +30,7 @@ function Products() {
   const [isNotMobile] = useMediaQuery("(min-width:760px)");
   const [isMobile] = useMediaQuery("(max-width:600px)");
   const [toggleButton, setToggleButton] = useState(false);
-  // const [toggleLikeButton, setToggleLikeButton] = useState(false);
+  const [toggleLikeButton, setToggleLikeButton] = useState(false);
 
   let likedProducts = new Set();
 
@@ -63,7 +63,6 @@ function Products() {
    */
   const handleSoldItems = () => {
     if (toggleButton === false) {
-      console.log("hit if statemnet");
       setPrevLength(numberOfProducts);
       setPrevProducts(products);
       setProducts(unsoldProducts);
@@ -107,7 +106,9 @@ function Products() {
             fontSize={isMobile ? "xl" : isNotMobile ? "4xl" : "2xl"}
           >
             {" "}
-            {numberOfProducts} Results
+            {numberOfProducts === null
+              ? "No Results Found"
+              : numberOfProducts + " Results"}
           </Heading>
         )}
 
@@ -149,6 +150,7 @@ function Products() {
             price={product.price}
             img={product.img}
             sold={product.sold}
+            liked={false}
           />
         ))}
       </Grid>

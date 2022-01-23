@@ -62,7 +62,6 @@ function Products() {
    */
   const handleSoldItems = () => {
     if (toggleButton === false) {
-      console.log("hit if statemnet");
       setPrevLength(numberOfProducts);
       setPrevProducts(products);
       setProducts(unsoldProducts);

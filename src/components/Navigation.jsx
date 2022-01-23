@@ -6,14 +6,13 @@ import { MdThumbUpOffAlt } from "react-icons/md";
 import PropTypes from "prop-types";
 
 function Navigation({ likes, likedProducts }) {
-  const handleClick = () => {
-    console.log("hello");
-  };
+  const handleClick = () => {};
   return (
     <Flex bgColor="white" justify="flex-end">
       <Menu>
         <MenuButton
           as={Button}
+          aria-label="total likes"
           onClick={handleClick}
           leftIcon={<MdThumbUpOffAlt />}
         >

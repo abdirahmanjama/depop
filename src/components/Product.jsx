@@ -76,6 +76,7 @@ function Product({ brand, size, price, img, sold }) {
           {toggleLikeButton === false ? (
             <IconButton
               position="absolute"
+              aria-label="like button"
               size="sm"
               top="6px"
               right="5px"
@@ -86,6 +87,7 @@ function Product({ brand, size, price, img, sold }) {
           ) : (
             <IconButton
               position="absolute"
+              aria-label="like button"
               size="sm"
               top="6px"
               right="5px"
@@ -97,12 +99,16 @@ function Product({ brand, size, price, img, sold }) {
           )}
         </Box>
         <Stack gap={0} padding={2}>
-          <Text fontSize="sm">{brand}</Text>
+          <Text fontSize="sm" aria-label="brand">
+            {brand}
+          </Text>
           <Flex justifyContent="space-between" paddingRight="5">
-            <Text fontWeight="bold" fontSize="sm">
+            <Text fontWeight="bold" aria-label="price" fontSize="sm">
               £{price}
             </Text>
-            <Text fontSize="sm">{homogeniseSizeValue(size)}</Text>
+            <Text fontSize="sm" aria-label="size">
+              {homogeniseSizeValue(size)}
+            </Text>
           </Flex>
         </Stack>
       </Flex>
@@ -113,7 +119,7 @@ function Product({ brand, size, price, img, sold }) {
 Product.propTypes = {
   brand: PropTypes.string,
   size: PropTypes.string,
-  sold: PropTypes.boolean,
+  sold: PropTypes.bool,
   img: PropTypes.string,
   price: PropTypes.string,
 };

@@ -8,11 +8,13 @@ import { CloseButton } from "@chakra-ui/close-button";
  * @version 0.0.1
  * @author [Abdirahman Jama]
  */
-function CustomAlert() {
+function CustomAlert(err) {
   return (
     <Alert status="error">
       <AlertIcon />
-      <AlertTitle mr={2}>Error:</AlertTitle>
+      <AlertTitle mr={2} id="error">
+        Error: {err}
+      </AlertTitle>
       <CloseButton position="absolute" right="8px" top="8px" />
     </Alert>
   );
